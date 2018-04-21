@@ -13,7 +13,7 @@ from collections import Counter
 
 def main(filename):
     # read file into lines
-    lines = open(filename,'r').read().split()
+    lines = open(filename,, encoding='utf-8').read().split()
 
     # declare a word list
     all_words = []
