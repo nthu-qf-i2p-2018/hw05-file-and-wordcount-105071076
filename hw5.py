@@ -9,6 +9,7 @@ import csv
 import json
 import pickle
 from collections import Counter
+import string
 
 
 def main(filename):
@@ -17,7 +18,7 @@ def main(filename):
 
     # declare a word list
     all_words = []
-    symbols = "~!@#$%^&*()_+={}|\"'?><,./-:;"
+  
 
     # extract all words from lines
     for line in lines:
@@ -29,12 +30,12 @@ def main(filename):
         for word in words:
             # then, remove (strip) unwanted punctuations from every word
             # "dream." => "dream"
-            for i in range(0, len(symbols)):
-                word = word.strip(symbols[i])
+            word=word.strip(string.punctuation)
+            if len(word)>0:
             # check if word is not empty
-            if word :
+               all_words.append(word)
                 # append the word to "all_words" list
-                all_words.append(word)
+                
 
     # compute word count from all_words
     counter = Counter(all_words)
